@@ -42,6 +42,5 @@ CREATE TABLE note_reminder (
 CREATE TABLE note_users (
     note_users_id SERIAL PRIMARY KEY,
     note_id INT REFERENCES notes(note_id) ON DELETE CASCADE,
-    users_id INT REFERENCES users(user_id) ON DELETE CASCADE,
-    UNIQUE (note_id, users_id)
+    users_id INT REFERENCES users(user_id) ON DELETE CASCADE
 );

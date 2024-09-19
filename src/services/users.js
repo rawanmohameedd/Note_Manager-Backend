@@ -2,7 +2,6 @@ const user = require('../models/users')
 
 const getUser = async (id) => {
     try {
-        console.log(id,'services')
         const userData = await user.getUserById(id)
         if (userData)
             return userData

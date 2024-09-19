@@ -5,11 +5,13 @@ const pool = require('./config/db.config');
 const app = express();
 
 const userRouter = require('./routes/users');
+const notesRouter = require('./routes/notes');
 
 app.use(cors());
 app.use(express.json());
 
 app.use(userRouter);
+app.use(notesRouter);
 
 const dbConnection = async () => {
     try {

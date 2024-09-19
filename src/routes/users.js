@@ -6,7 +6,7 @@ const userServices = require('../services/users')
 Router.get('/user/:id', async(req,res)=>{
     try{
         const user_id = req.params.id
-        console.log(user_id,'routes')
+        console.log(user_id)
         const result = await userServices.getUser(user_id)
         console.log(result)
         return res.send(result)
