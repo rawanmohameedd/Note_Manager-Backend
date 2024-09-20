@@ -26,10 +26,22 @@ Router.get("/noteDate/:date", async(req,res)=>{
     }
 })
 
-Router.get("/notesbyUser/:userID", async(req,res)=>{
+Router.get("/notesIDbyUser/:userID", async(req,res)=>{
     try{
         const user_id = req.params.userID
         const result = await noteServices.getNotesIDbyuserID(user_id)
+        console.log(result)
+        res.send(result)
+    }catch (error) {
+        console.error('Error in route:', error);
+        return res.status(500).send({ error: "Can't get to this note" });   
+    }
+})
+
+Router.get("/notesbyUser/:userID", async(req,res)=>{
+    try{
+        const user_id = req.params.userID
+        const result = await noteServices.getNotesbyuserID(user_id)
         console.log(result)
         res.send(result)
     }catch (error) {

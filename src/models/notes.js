@@ -37,8 +37,23 @@ const getNotesIDByuserID = async(user_id)=>{
         throw err
     }
 }
+
+const getNotesByuserID = async(user_id)=>{
+    try{
+        const [rows] = await pool.query(`SELECT n.note_title , n.note_status , n.note_content , n.note_creation_date
+                                        FROM notes n join note_users u where u.users_id = ? AND u.note_id = n.note_id;`,[user_id])
+        if(rows.length)
+            return rows
+        return null
+    }catch(err){
+        console.error('error in getting notes', err)
+        throw err
+    }
+}
+
 module.exports={
     getNoteById,
     getNoteByCreation_date,
-    getNotesIDByuserID
+    getNotesIDByuserID, 
+    getNotesByuserID
 }
