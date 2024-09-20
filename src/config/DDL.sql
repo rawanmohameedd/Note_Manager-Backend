@@ -36,8 +36,7 @@ CREATE TABLE note_category (
 CREATE TABLE note_reminder (
     note_reminder_id SERIAL PRIMARY KEY,
     note_id INT REFERENCES notes(note_id) ON DELETE CASCADE,
-    reminder_id INT REFERENCES reminder(reminder_id) ON DELETE CASCADE,
-    UNIQUE (note_id, reminder_id)
+    reminder_id INT REFERENCES reminder(reminder_id) ON DELETE CASCADE
 );
 CREATE TABLE note_users (
     note_users_id SERIAL PRIMARY KEY,

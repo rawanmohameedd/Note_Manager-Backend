@@ -47,9 +47,22 @@ const getNotesbyuserID = async(user_id)=>{
         throw error   
     }
 }
+
+const getNotesbyCategory = async(category_id)=>{
+    try{
+        const note = await notemodels.getNotesByCategory(category_id)
+        if(note)
+            return note
+        return 'No Notes in this category'
+    }catch (error) {
+        console.error('error in fetch notes', err)
+        throw error   
+    }
+}
 module.exports={
     getNote,
     getNotebyDate,
     getNotesIDbyuserID,
-    getNotesbyuserID
+    getNotesbyuserID,
+    getNotesbyCategory
 }

@@ -50,4 +50,16 @@ Router.get("/notesbyUser/:userID", async(req,res)=>{
     }
 })
 
+Router.get("/notesbycategory/:categoryID", async(req,res)=>{
+    try{
+        const category_id = req.params.categoryID
+        const result = await noteServices.getNotesbyCategory(category_id)
+        console.log(result)
+        res.send(result)
+    }catch (error) {
+        console.error('Error in route:', error);
+        return res.status(500).send({ error: "Can't get to this note in this category" });   
+    }
+})
+
 module.exports = Router
