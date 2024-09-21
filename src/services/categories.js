@@ -16,7 +16,7 @@ const getCategorybyDate = async(category_creation_date) =>{
         const categories = await categoriesModels.getCategorybydate(category_creation_date)
         if(categories)
             return categories
-        return 'There are no categories created before this date'
+        return 'There are no  categories created before this date'
     } catch(err){
         console.error(err.message , "Can't get to categories")
     }
