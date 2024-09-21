@@ -6,12 +6,16 @@ const app = express();
 
 const userRouter = require('./routes/users');
 const notesRouter = require('./routes/notes');
+const reminderRouter = require('./routes/reminders');
+const categoriesRouter = require('./routes/categories');
 
 app.use(cors());
 app.use(express.json());
 
 app.use(userRouter);
 app.use(notesRouter);
+app.use(reminderRouter);
+app.use(categoriesRouter);
 
 const dbConnection = async () => {
     try {
